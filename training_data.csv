@@ -1,0 +1,49 @@
+question,intent
+ليه المرتب قل,salary_explanation
+ليه المرتب أقل,salary_explanation
+النت ناقص ليه,salary_explanation
+المرتب قليل,salary_explanation
+حاسس القبض أقل,salary_explanation
+ليه المرتب زاد,salary_explanation
+اشرح المرتب,salary_explanation
+اشرح الفيش,salary_explanation
+اعرض الخصومات,deductions
+كم الخصومات,deductions
+الخصومات كام,deductions
+اعرض الضريبة,tax
+كم الضريبة,tax
+الضريبة زادت ليه,tax
+اعرض البونص,bonus
+كم البونص,bonus
+هل فيه بونص,bonus
+اعرض الأوفر تايم,overtime
+كم الأوفر تايم,overtime
+الأوفر تايم كام,overtime
+قارن بين الشهرين,compare
+اعمل مقارنة,compare
+قارن أبريل ومايو,compare
+ليه الضريبة زادت,tax
+الضريبة زادت ليه,tax
+سبب زيادة الضريبة,tax
+اشرح الضريبة,tax
+الضريبة كام,tax
+اعرض الضريبة,tax
+ليه الضرائب زادت,tax
+الضريبة عالية ليه,tax
+ليه الضرليب زادت,tax
+الضريبه زادت ليه,tax
+الضريبه كام,tax
+ليه الضريبة زادت,tax
+الضريبة زادت ليه,tax
+سبب زيادة الضريبة,tax
+اشرح الضريبة,tax
+الضريبة كام,tax
+اعرض الضريبة,tax
+ليه الضرليب زادت,tax
+الضريبه زادت ليه,tax
+ليه الصافي زاد,salary_explanation
+الصافي زاد ليه,salary_explanation
+سبب زيادة الصافي,salary_explanation
+ليه النت زاد,salary_explanation
+الراتب زاد ليه,salary_explanation
+اشرح زيادة المرتب,salary_explanation
