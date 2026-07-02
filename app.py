@@ -2,8 +2,9 @@ from data_loader import load_data
 
 from services.payroll_service import get_employee_data
 from intents import detect_intent
-from payroll_chat_engine import handle_question
-from payroll_chat_engine import handle_followup
+
+from services.payroll_chat_engine import handle_question
+from services.payroll_chat_engine import handle_followup
 
 from services.conversation_manager import save_context
 from services.conversation_manager import get_last_intent
@@ -11,12 +12,7 @@ from services.conversation_manager import get_last_topic
 
 from services.text_normalizer import normalize_text
 
-from services.salary_analysis import explain_salary_change
-
 df = load_data()
-
-print("Hello")
-print("ادخل رقم الموظف")
 
 employee_id = int(input("ادخل رقم الموظف: "))
 
@@ -105,9 +101,7 @@ while True:
 
         else:
 
-            print(
-                "هل لديك أي استفسار آخر؟"
-            )
+            print("هل لديك أي استفسار آخر?")
 
         continue
 
@@ -132,7 +126,7 @@ while True:
     print(f"\n[DEBUG] Intent = {intent}")
     print(f"[DEBUG] Confidence = {confidence:.2f}")
 
-    if confidence < 0.50:
+    if confidence < 0.45:
 
         print("\nالبوت:")
         print(
