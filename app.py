@@ -1,21 +1,13 @@
-import sys
-
-print(sys.stdout.encoding)
-print(sys.stdin.encoding)
-
-print("محمد")
-
-
 from data_loader import load_data
 
-from payroll_service import get_employee_data
+from services.payroll_service import get_employee_data
 from intents import detect_intent
 from payroll_chat_engine import handle_question
 from payroll_chat_engine import handle_followup
 
-from conversation_manager import save_context
-from conversation_manager import get_last_intent
-from conversation_manager import get_last_topic
+from services.conversation_manager import save_context
+from services.conversation_manager import get_last_intent
+from services.conversation_manager import get_last_topic
 
 from services.text_normalizer import normalize_text
 
