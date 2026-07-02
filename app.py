@@ -11,6 +11,8 @@ from services.conversation_manager import get_last_topic
 
 from services.text_normalizer import normalize_text
 
+from services.salary_analysis import explain_salary_change
+
 df = load_data()
 
 print("Hello")

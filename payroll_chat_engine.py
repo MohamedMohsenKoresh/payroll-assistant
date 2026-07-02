@@ -1,4 +1,4 @@
-from salary_analysis import explain_salary_change
+from services.salary_analysis import explain_salary_change
 
 
 def handle_question(intent, april, may):
