@@ -1,16 +1,27 @@
-from data_loader import load_data
+import sys
 
+print(sys.stdout.encoding)
+print(sys.stdin.encoding)
+print("محمد")
+
+from services.data_loader import load_data
 from services.payroll_service import get_employee_data
-from intents import detect_intent
 
-from services.payroll_chat_engine import handle_question
-from services.payroll_chat_engine import handle_followup
+from ml.intents import detect_intent
 
-from services.conversation_manager import save_context
-from services.conversation_manager import get_last_intent
-from services.conversation_manager import get_last_topic
+from services.payroll_chat_engine import (
+    handle_question,
+    handle_followup,
+)
+
+from services.conversation_manager import (
+    save_context,
+    get_last_intent,
+    get_last_topic,
+)
 
 from services.text_normalizer import normalize_text
+
 
 df = load_data()
 
@@ -35,7 +46,6 @@ while True:
     question = normalize_text(question)
 
     if question.lower() == "exit":
-
         print("\nالبوت: شكراً لاستخدام Payroll Chatbot")
         break
 
@@ -46,7 +56,6 @@ while True:
         if last_intent == "salary_explanation":
 
             print("\nالبوت:")
-
             print(
                 f"التغيير يعني الفرق بين صافي المرتب في أبريل ومايو.\n"
                 f"صافي أبريل = {april['net_salary']:.2f} جنيه\n"
@@ -89,9 +98,7 @@ while True:
 
         if topic == "tax":
 
-            print(
-                "نعم، السبب الرئيسي هو زيادة الدخل الخاضع للضريبة."
-            )
+            print("نعم، السبب الرئيسي هو زيادة الدخل الخاضع للضريبة.")
 
         elif topic == "salary_explanation":
 
@@ -101,7 +108,7 @@ while True:
 
         else:
 
-            print("هل لديك أي استفسار آخر?")
+            print("هل لديك أي استفسار آخر؟")
 
         continue
 
@@ -110,14 +117,7 @@ while True:
         topic = get_last_topic()
 
         print("\nالبوت:")
-
-        print(
-            handle_followup(
-                topic,
-                april,
-                may
-            )
-        )
+        print(handle_followup(topic, april, may))
 
         continue
 

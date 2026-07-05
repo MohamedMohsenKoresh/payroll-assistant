@@ -1,7 +1,7 @@
 import joblib
 
-model = joblib.load("intent_model.joblib")
-vectorizer = joblib.load("vectorizer.joblib")
+model = joblib.load("models/intent_model.joblib")
+vectorizer = joblib.load("models/vectorizer.joblib")
 
 
 def detect_intent(question):
