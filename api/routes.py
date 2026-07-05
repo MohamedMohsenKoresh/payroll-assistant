@@ -1,9 +1,12 @@
 from fastapi import APIRouter
 
 from api.schemas import LoginRequest
+from api.schemas import ChatRequest
 
 from services.data_loader import load_data
 from services.payroll_service import get_employee_data
+
+from services.chat_service import chat
 
 router = APIRouter()
 
@@ -49,3 +52,12 @@ def login(request: LoginRequest):
         "months": months,
         "message": "تم تسجيل الدخول بنجاح"
     }
+
+
+@router.post("/chat")
+def chat_api(request: ChatRequest):
+
+    return chat(
+        request.employee_id,
+        request.question
+    )
