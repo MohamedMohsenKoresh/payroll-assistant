@@ -1,29 +1,66 @@
-last_intent = None
-last_topic = None
-last_response = None
+conversations = {}
 
 
-def save_context(intent, topic=None, response=None):
+def save_context(employee_id, intent, topic=None, response=None):
 
-    global last_intent
-    global last_topic
-    global last_response
+    history = conversations.get(employee_id, [])
 
-    last_intent = intent
-    last_topic = topic
-    last_response = response
+    history.append(
+        {
+            "intent": intent,
+            "topic": topic,
+            "response": response
+        }
+    )
 
-
-def get_last_intent():
-
-    return last_intent
-
-
-def get_last_topic():
-
-    return last_topic
+    conversations[employee_id] = history[-10:]
 
 
-def get_last_response():
+def get_last_context(employee_id):
 
-    return last_response
+    history = conversations.get(employee_id, [])
+
+    if not history:
+        return None
+
+    return history[-1]
+
+
+def get_last_intent(employee_id):
+
+    context = get_last_context(employee_id)
+
+    if context is None:
+        return None
+
+    return context["intent"]
+
+
+def get_last_topic(employee_id):
+
+    context = get_last_context(employee_id)
+
+    if context is None:
+        return None
+
+    return context["topic"]
+
+
+def get_last_response(employee_id):
+
+    context = get_last_context(employee_id)
+
+    if context is None:
+        return None
+
+    return context["response"]
+
+
+def get_history(employee_id):
+
+    return conversations.get(employee_id, [])
+
+
+def clear_context(employee_id):
+
+    conversations.pop(employee_id, None)

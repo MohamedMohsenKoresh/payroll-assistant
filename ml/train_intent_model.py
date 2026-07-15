@@ -7,10 +7,16 @@ from sklearn.linear_model import LogisticRegression
 
 df = pd.read_csv("data/training_data.csv")
 
+df = df.drop_duplicates()
+
 X = df["question"]
 y = df["intent"]
 
-vectorizer = TfidfVectorizer()
+
+vectorizer = TfidfVectorizer(
+    ngram_range=(1, 2),
+    lowercase=True
+)
 
 X_vectorized = vectorizer.fit_transform(X)
 
